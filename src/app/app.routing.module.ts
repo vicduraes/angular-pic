@@ -6,9 +6,10 @@ import { PhotosFormComponent } from "./photos/photos-form/photos-form.component"
 import { NotFoundComponent } from "./errors/not-found/not-found.component";
 import { PhotosListResolver } from "./photos/photos-list/photos-list.resolver";
 import { SigninComponent } from "./home/signin/signin.component";
+import { AuthGuard } from "./core/auth.guard";
 
 const routes: Routes = [
-  { path: "", component: SigninComponent },
+  { path: "", component: SigninComponent, canActivate: [AuthGuard] },
   {
     path: "user/:userName",
     component: PhotosListComponent,
