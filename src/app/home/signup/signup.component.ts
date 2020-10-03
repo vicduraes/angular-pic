@@ -1,6 +1,10 @@
-import { CheckUserService } from "./check-user.service";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+
+import { SignupService } from "./signup.service";
+import { CheckUserService } from "./check-user.service";
+import { NewUser } from "./new-user";
 
 @Component({
   selector: "app-signup",
@@ -11,7 +15,9 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private checkUser: CheckUserService
+    private checkUser: CheckUserService,
+    private signupService: SignupService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -44,5 +50,13 @@ export class SignupComponent implements OnInit {
         ],
       ],
     });
+  }
+
+  signup() {
+    const newUser = this.signupForm.getRawValue() as NewUser;
+    this.signupService.signup(newUser).subscribe(
+      () => this.router.navigate([""]),
+      (err) => console.error(err.message)
+    );
   }
 }
