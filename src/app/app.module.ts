@@ -8,6 +8,7 @@ import { PhotosModule } from "./photos/photos.module";
 import { ErrorsModule } from "./errors/errors.module";
 import { HeaderModule } from "./shared/components/header/header.module";
 import { RequestInterceptorService } from "./core/request-interceptor.service";
+import { FooterModule } from "./shared/components/footer/footer.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { RequestInterceptorService } from "./core/request-interceptor.service";
     PhotosModule,
     ErrorsModule,
     HeaderModule,
+    FooterModule,
     AppRoutingModule,
   ],
   providers: [
