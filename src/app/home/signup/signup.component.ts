@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
@@ -12,6 +12,7 @@ import { NewUser } from "./new-user";
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
+  @ViewChild("inputEmail") inputEmail: ElementRef<HTMLInputElement>;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,6 +51,7 @@ export class SignupComponent implements OnInit {
         ],
       ],
     });
+    this.inputEmail.nativeElement.focus();
   }
 
   signup() {
