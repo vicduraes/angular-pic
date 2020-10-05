@@ -9,6 +9,7 @@ import { NewUser } from "./new-user";
 @Component({
   selector: "app-signup",
   templateUrl: "./signup.component.html",
+  providers: [CheckUserService],
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
