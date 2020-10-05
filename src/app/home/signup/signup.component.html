@@ -1,119 +1,117 @@
-<div class="container">
-  <h4 class="text-center mt-4">Register</h4>
+<h4 class="text-center mt-4">Register</h4>
 
-  <form [formGroup]="signupForm" class="form mt-4" (submit)="signup()">
-    <div class="form-group">
-      <input
-        #inputEmail
-        formControlName="email"
-        class="form-control"
-        placeholder="Insert your email"
-        autofocus
-      />
-      <app-small-message
-        *ngIf="signupForm.get('email').errors?.required"
-        msg="Email is required!"
-      >
-      </app-small-message>
-      <app-small-message
-        *ngIf="signupForm.get('email').errors?.email"
-        msg="Invalid e-mail"
-      >
-      </app-small-message>
-    </div>
-
-    <div class="form-group">
-      <input
-        formControlName="fullName"
-        class="form-control"
-        placeholder="Insert your full name"
-      />
-      <app-small-message
-        *ngIf="signupForm.get('fullName').errors?.required"
-        msg="Full name is required!"
-      >
-      </app-small-message>
-      <app-small-message
-        *ngIf="signupForm.get('fullName').errors?.minlength"
-        msg="Minimum length is 10"
-      >
-      </app-small-message>
-      <app-small-message
-        *ngIf="signupForm.get('fullName').errors?.maxlength"
-        msg="Maximum length is 40"
-      >
-      </app-small-message>
-    </div>
-
-    <div class="form-group">
-      <input
-        formControlName="userName"
-        class="form-control"
-        placeholder="Create a username"
-      />
-      <app-small-message
-        *ngIf="signupForm.get('userName').errors?.required"
-        msg="Username is required!"
-      >
-      </app-small-message>
-      <app-small-message
-        *ngIf="signupForm.get('userName').errors?.minlength"
-        msg="Minimum length is 4"
-      >
-      </app-small-message>
-      <app-small-message
-        *ngIf="signupForm.get('userName').errors?.maxlength"
-        msg="Maximum length is 15"
-      >
-      </app-small-message>
-      <app-small-message
-        *ngIf="signupForm.get('userName').errors?.pattern"
-        msg="Must be lowercase"
-      >
-      </app-small-message>
-      <app-small-message
-        *ngIf="signupForm.get('userName').errors?.userNameExists"
-        msg="Username already exists"
-      >
-      </app-small-message>
-      <small *ngIf="signupForm.get('userName').valid" class="text-success"
-        >User available</small
-      >
-    </div>
-
-    <div class="form-group">
-      <input
-        formControlName="password"
-        type="password"
-        class="form-control"
-        placeholder="Create a password"
-      />
-      <app-small-message
-        *ngIf="signupForm.get('password').errors?.required"
-        msg="Password is required!"
-      >
-      </app-small-message>
-      <app-small-message
-        *ngIf="signupForm.get('password').errors?.minlength"
-        msg="Minimum length is 5"
-      >
-      </app-small-message>
-      <app-small-message
-        *ngIf="signupForm.get('password').errors?.maxlength"
-        msg="Maximum length is 10"
-      >
-      </app-small-message>
-    </div>
-
-    <button
-      [disabled]="signupForm.invalid || signupForm.pending"
-      class="btn btn-primary btn-block"
+<form [formGroup]="signupForm" class="form mt-4" (submit)="signup()">
+  <div class="form-group">
+    <input
+      #inputEmail
+      formControlName="email"
+      class="form-control"
+      placeholder="Insert your email"
+      autofocus
+    />
+    <app-small-message
+      *ngIf="signupForm.get('email').errors?.required"
+      msg="Email is required!"
     >
-      Register
-    </button>
+    </app-small-message>
+    <app-small-message
+      *ngIf="signupForm.get('email').errors?.email"
+      msg="Invalid e-mail"
+    >
+    </app-small-message>
+  </div>
 
-    <p class="text-center mt-2">
-      Already a user? <a [routerLink]="['']">Login</a>
-    </p>
-  </form>
-</div>
+  <div class="form-group">
+    <input
+      formControlName="fullName"
+      class="form-control"
+      placeholder="Insert your full name"
+    />
+    <app-small-message
+      *ngIf="signupForm.get('fullName').errors?.required"
+      msg="Full name is required!"
+    >
+    </app-small-message>
+    <app-small-message
+      *ngIf="signupForm.get('fullName').errors?.minlength"
+      msg="Minimum length is 10"
+    >
+    </app-small-message>
+    <app-small-message
+      *ngIf="signupForm.get('fullName').errors?.maxlength"
+      msg="Maximum length is 40"
+    >
+    </app-small-message>
+  </div>
+
+  <div class="form-group">
+    <input
+      formControlName="userName"
+      class="form-control"
+      placeholder="Create a username"
+    />
+    <app-small-message
+      *ngIf="signupForm.get('userName').errors?.required"
+      msg="Username is required!"
+    >
+    </app-small-message>
+    <app-small-message
+      *ngIf="signupForm.get('userName').errors?.minlength"
+      msg="Minimum length is 4"
+    >
+    </app-small-message>
+    <app-small-message
+      *ngIf="signupForm.get('userName').errors?.maxlength"
+      msg="Maximum length is 15"
+    >
+    </app-small-message>
+    <app-small-message
+      *ngIf="signupForm.get('userName').errors?.pattern"
+      msg="Must be lowercase"
+    >
+    </app-small-message>
+    <app-small-message
+      *ngIf="signupForm.get('userName').errors?.userNameExists"
+      msg="Username already exists"
+    >
+    </app-small-message>
+    <small *ngIf="signupForm.get('userName').valid" class="text-success"
+      >User available</small
+    >
+  </div>
+
+  <div class="form-group">
+    <input
+      formControlName="password"
+      type="password"
+      class="form-control"
+      placeholder="Create a password"
+    />
+    <app-small-message
+      *ngIf="signupForm.get('password').errors?.required"
+      msg="Password is required!"
+    >
+    </app-small-message>
+    <app-small-message
+      *ngIf="signupForm.get('password').errors?.minlength"
+      msg="Minimum length is 5"
+    >
+    </app-small-message>
+    <app-small-message
+      *ngIf="signupForm.get('password').errors?.maxlength"
+      msg="Maximum length is 10"
+    >
+    </app-small-message>
+  </div>
+
+  <button
+    [disabled]="signupForm.invalid || signupForm.pending"
+    class="btn btn-primary btn-block"
+  >
+    Register
+  </button>
+
+  <p class="text-center mt-2">
+    Already a user? <a [routerLink]="['']">Login</a>
+  </p>
+</form>
