@@ -11,6 +11,7 @@ import { Photo } from "../photo/photo";
 })
 export class PhotoDetailsComponent implements OnInit {
   photo$: Observable<Photo>;
+  photoId: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -18,6 +19,7 @@ export class PhotoDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.photo$ = this.photoService.findById(this.route.snapshot.params.id);
+    this.photoId = this.route.snapshot.params.id;
+    this.photo$ = this.photoService.findById(this.photoId);
   }
 }

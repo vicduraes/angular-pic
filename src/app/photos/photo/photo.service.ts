@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 
 import { Photo } from "./photo";
 import { environment } from "./../../../environments/environment";
+import { PhotoComment } from "./photo-comment";
 
 @Injectable({ providedIn: "root" })
 export class PhotoService {
@@ -27,7 +28,19 @@ export class PhotoService {
     return this.http.post(`${environment.API}/photos/upload`, formData);
   }
 
-  findById(id: string) {
-    return this.http.get<Photo>(`${environment.API}/photos/${id}`);
+  findById(photoId: number) {
+    return this.http.get<Photo>(`${environment.API}/photos/${photoId}`);
+  }
+
+  getComments(photoId: number) {
+    return this.http.get<PhotoComment[]>(
+      `${environment.API}/photos/${photoId}/comments`
+    );
+  }
+
+  addComment(photoId: number, comment: string) {
+    return this.http.post(`${environment.API}/photos/${photoId}/comments`, {
+      commentText: comment,
+    });
   }
 }
