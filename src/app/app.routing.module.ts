@@ -5,6 +5,7 @@ import { PhotosListComponent } from "./photos/photos-list/photos-list.component"
 import { PhotosFormComponent } from "./photos/photos-form/photos-form.component";
 import { NotFoundComponent } from "./errors/not-found/not-found.component";
 import { PhotosListResolver } from "./photos/photos-list/photos-list.resolver";
+import { AuthGuard } from "./core/auth.guard";
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "home" },
@@ -16,7 +17,7 @@ const routes: Routes = [
       photos: PhotosListResolver,
     },
   },
-  { path: "p/add", component: PhotosFormComponent },
+  { path: "p/add", component: PhotosFormComponent, canActivate: [AuthGuard] },
   { path: "**", component: NotFoundComponent },
 ];
 
