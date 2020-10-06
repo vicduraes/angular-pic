@@ -3,3 +3,7 @@ body {
   font-family: "Roboto", sans-serif;
   padding-top: 60px;
 }
+
+.break-word {
+  word-break: break-all;
+}
