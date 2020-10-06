@@ -5,6 +5,7 @@ import { RouterModule } from "@angular/router";
 
 import { PhotosFormComponent } from "./photos-form.component";
 import { SmallMessageModule } from "src/app/shared/components/small-message/small-message.module";
+import { PhotoModule } from "./../photo/photo.module";
 
 @NgModule({
   declarations: [PhotosFormComponent],
@@ -14,6 +15,7 @@ import { SmallMessageModule } from "src/app/shared/components/small-message/smal
     FormsModule,
     RouterModule,
     SmallMessageModule,
+    PhotoModule,
   ],
 })
 export class PhotosFormModule {}
