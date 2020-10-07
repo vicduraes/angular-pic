@@ -1,0 +1,6 @@
+<div
+  *ngFor="let notification of notifications"
+  class="text-center {{ getNotificationClass(notification) }}"
+>
+  {{ notification.message }}
+</div>

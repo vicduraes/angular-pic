@@ -1,3 +1,5 @@
+import { UserService } from "./../../core/user.service";
+import { NotificationsService } from "./../../shared/components/notifications/notifications.service";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, Validators } from "@angular/forms";
 import { FormBuilder } from "@angular/forms";
@@ -17,7 +19,9 @@ export class PhotosFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private photoService: PhotoService,
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationsService,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
@@ -32,8 +36,16 @@ export class PhotosFormComponent implements OnInit {
     const description = this.photoForm.get("description").value;
     const allowComments = this.photoForm.get("allowComments").value;
     this.photoService.upload(description, allowComments, this.file).subscribe(
-      () => this.router.navigate([""]),
-      (err) => console.error(err.message)
+      () => {
+        this.notificationService.success("Upload complete!", true);
+        this.router.navigate(["/user", this.userService.getUserName()]);
+      },
+      (err) => {
+        this.notificationService.warning(
+          "Could not complete upload! Try again later"
+        );
+        console.error(err.message);
+      }
     );
   }
 
