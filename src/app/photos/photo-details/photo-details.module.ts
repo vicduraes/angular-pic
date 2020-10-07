@@ -1,5 +1,3 @@
-import { OnlyOwnerModule } from "./../../shared/directives/only-owner/only-owner.module";
-import { OnlyOwnerDirective } from "./../../shared/directives/only-owner/only-owner.directive";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
@@ -10,6 +8,8 @@ import { PhotoDetailsComponent } from "./photo-details.component";
 import { PhotoModule } from "./../photo/photo.module";
 import { PhotoCommentsComponent } from "./photo-comments/photo-comments.component";
 import { SmallMessageModule } from "src/app/shared/components/small-message/small-message.module";
+import { OnlyLoggedModule } from "./../../shared/directives/only-logged/only-logged.module";
+import { OnlyOwnerModule } from "./../../shared/directives/only-owner/only-owner.module";
 
 @NgModule({
   imports: [
@@ -20,6 +20,7 @@ import { SmallMessageModule } from "src/app/shared/components/small-message/smal
     FormsModule,
     SmallMessageModule,
     OnlyOwnerModule,
+    OnlyLoggedModule,
   ],
   declarations: [PhotoDetailsComponent, PhotoCommentsComponent],
   exports: [PhotoDetailsComponent, PhotoCommentsComponent],

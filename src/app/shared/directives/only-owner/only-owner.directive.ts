@@ -4,7 +4,7 @@ import { Directive, ElementRef, Input, OnInit, Renderer2 } from "@angular/core";
 import { Photo } from "./../../../photos/photo/photo";
 
 @Directive({
-  selector: "[photoOnlyOwner]",
+  selector: "[onlyOwner]",
 })
 export class OnlyOwnerDirective implements OnInit {
   @Input() ownerPhoto: Photo;
