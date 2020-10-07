@@ -1,3 +1,5 @@
+import { OnlyOwnerModule } from "./../../shared/directives/only-owner/only-owner.module";
+import { OnlyOwnerDirective } from "./../../shared/directives/only-owner/only-owner.directive";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
@@ -17,6 +19,7 @@ import { SmallMessageModule } from "src/app/shared/components/small-message/smal
     ReactiveFormsModule,
     FormsModule,
     SmallMessageModule,
+    OnlyOwnerModule,
   ],
   declarations: [PhotoDetailsComponent, PhotoCommentsComponent],
   exports: [PhotoDetailsComponent, PhotoCommentsComponent],
