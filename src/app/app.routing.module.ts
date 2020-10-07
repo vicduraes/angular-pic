@@ -17,14 +17,32 @@ const routes: Routes = [
     resolve: {
       photos: PhotosListResolver,
     },
+    data: {
+      title: "Timeline",
+    },
   },
   {
     path: "photo/add",
     component: PhotosFormComponent,
     canActivate: [AuthGuard],
+    data: {
+      title: "Photo upload",
+    },
   },
-  { path: "photo/:id", component: PhotoDetailsComponent },
-  { path: "not-found", component: NotFoundComponent },
+  {
+    path: "photo/:id",
+    component: PhotoDetailsComponent,
+    data: {
+      title: "Photo details",
+    },
+  },
+  {
+    path: "not-found",
+    component: NotFoundComponent,
+    data: {
+      title: "Not found",
+    },
+  },
   { path: "**", redirectTo: "not-found" },
 ];
 
