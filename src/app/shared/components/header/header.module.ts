@@ -4,9 +4,10 @@ import { RouterModule } from "@angular/router";
 
 import { HeaderComponent } from "./header.component";
 import { NotificationsModule } from "../notifications/notifications.module";
+import { LoadingModule } from './../loading/loading.module';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, NotificationsModule],
+  imports: [CommonModule, RouterModule, NotificationsModule, LoadingModule],
   declarations: [HeaderComponent],
   exports: [HeaderComponent],
 })
