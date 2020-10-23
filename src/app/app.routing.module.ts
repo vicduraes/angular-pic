@@ -6,6 +6,7 @@ import { PhotosFormComponent } from "./photos/photos-form/photos-form.component"
 import { PhotoDetailsComponent } from "./photos/photo-details/photo-details.component";
 import { PhotosListResolver } from "./photos/photos-list/photos-list.resolver";
 import { NotFoundComponent } from "./errors/not-found/not-found.component";
+import { GlobalErrorComponent } from "./errors/global-error/global-error.component";
 import { AuthGuard } from "./core/auth.guard";
 
 const routes: Routes = [
@@ -41,6 +42,13 @@ const routes: Routes = [
     component: NotFoundComponent,
     data: {
       title: "Not found",
+    },
+  },
+  {
+    path: "error",
+    component: GlobalErrorComponent,
+    data: {
+      title: "Error",
     },
   },
   { path: "**", redirectTo: "not-found" },
