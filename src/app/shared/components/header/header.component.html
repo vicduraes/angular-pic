@@ -1,18 +1,12 @@
-<header class="fixed-top">
+<header *ngIf="user$ | async as user" class="fixed-top">
   <nav class="navbar navbar-light bg-info">
     <a class="navbar-brand text-white">ANGULAR PIC</a>
 
-    <div *ngIf="user$ | async as user; else login">
+    <div *ngIf="user$ | async as user">
       <i class="fa fa-user-circle text-white"></i>
       <a class="text-white ml-2 mr-2">{{ user.name }}</a>
       <a class="text-white" (click)="logout()">(Logout)</a>
     </div>
-
-    <ng-template #login>
-      <span>
-        <a class="navbar-text text-white" [routerLink]="['']"> Login </a>
-      </span>
-    </ng-template>
   </nav>
   <div class="fixed-top">
     <app-loading></app-loading>
